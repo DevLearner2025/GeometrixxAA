@@ -5,3 +5,8 @@ WHERE ISDESCENDANTNODE(u, '/home/users')
   AND u.[rep:authorizableId] <> 'admin'
   AND u.[rep:authorizableId] <> 'anonymous'
   AND u.[jcr:created] >= CAST('2024-09-04T00:00:00.000Z' AS DATE)
+SELECT p.[jcr:primaryType], p.[jcr:created]
+FROM [cq:Page] AS p
+WHERE ISDESCENDANTNODE(p, '/content')
+  AND NOT ISDESCENDANTNODE(p, '/content/experience-fragments')
+  AND p.[jcr:content/jcr:created] >= CAST('2024-09-04T00:00:00.000Z' AS DATE)
