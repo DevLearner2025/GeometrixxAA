@@ -1,0 +1,6 @@
+SELECT u.[rep:authorizableId], u.[jcr:created]
+FROM [rep:User] AS u
+WHERE ISDESCENDANTNODE(u, '/home/users')
+  AND NOT ISDESCENDANTNODE(u, '/home/users/system')
+  AND u.[rep:authorizableId] NOT IN ('admin','anonymous')
+  AND u.[jcr:created] >= CAST('2025-08-05T00:00:00.000Z' AS DATE)
