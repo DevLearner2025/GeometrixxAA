@@ -1,12 +1,5 @@
-SELECT u.[rep:authorizableId], u.[jcr:created]
-FROM [rep:User] AS u
-WHERE ISDESCENDANTNODE(u, '/home/users')
-  AND NOT ISDESCENDANTNODE(u, '/home/users/system')
-  AND u.[rep:authorizableId] <> 'admin'
-  AND u.[rep:authorizableId] <> 'anonymous'
-  AND u.[jcr:created] >= CAST('2024-09-04T00:00:00.000Z' AS DATE)
-SELECT p.[jcr:primaryType], p.[jcr:created]
-FROM [cq:Page] AS p
-WHERE ISDESCENDANTNODE(p, '/content')
-  AND NOT ISDESCENDANTNODE(p, '/content/experience-fragments')
-  AND p.[jcr:content/jcr:created] >= CAST('2024-09-04T00:00:00.000Z' AS DATE)
+SELECT a.[jcr:primaryType], a.[jcr:created]
+FROM [dam:Asset] AS a
+WHERE ISDESCENDANTNODE(a, '/content/dam')
+  AND (NOT a.[jcr:content/contentFragment] = CAST('true' AS BOOLEAN))
+  AND a.[jcr:content/jcr:created] >= CAST('2024-09-04T00:00:00.000Z' AS DATE)
