@@ -1,0 +1,16 @@
+select
+  [jcr:path]                                        as path,
+  s.[jcr:content/metadata/dc:title]                 as title,
+  s.[jcr:content/metadata/dc:format]                as type,
+  s.[jcr:content/metadata/dam:size]                 as size,
+  s.[jcr:created]                                   as added,
+  s.[jcr:createdBy]                                 as addedBy,
+  s.[jcr:content/jcr:lastModified]                  as modified,
+  s.[jcr:content/jcr:lastModifiedBy]                as modifiedBy,
+  s.[jcr:content/cq:lastReplicationAction]          as publishStatus,
+  s.[jcr:content/cq:lastReplicated]                 as published,
+  s.[jcr:content/cq:lastReplicatedBy]               as publishedBy
+from [dam:Asset] as s
+where ISDESCENDANTNODE(s, '{{path}}')
+order by s.[jcr:created] desc
+option(limit 50, offset 0)
