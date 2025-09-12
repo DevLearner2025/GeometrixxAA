@@ -1,9 +1,1 @@
-Where they live
-dc:title is stored under the asset node at jcr:content/metadata/dc:title (e.g., /content/dam/.../asset.jpg/jcr:content/metadata).
-
-jcr:title is typically stored directly on the content node it titles, such as a page’s jcr:content node, a folder node, or a component/resource node.
-
-Typical usage in AEM
-Assets: authoring and search facets generally rely on dc:title; the Assets metadata editor reads/writes this field.
-
-Pages/components: authoring UIs and Core Components often read jcr:title for display headings and navigational labels.
+ I’d truly value your honest feedback on my performance—what went well and where I can improve. Your insights will help me grow and contribute better to our team’s success. Thank you for your time and support
